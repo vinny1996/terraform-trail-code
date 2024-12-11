@@ -29,7 +29,7 @@ done
 
 # Mount EBS volume, and set it to auto-mount after reboots
 sudo mkdir "$MOUNT_POINT"
-echo "UUID=$uuid  $MOUNT_POINT  $DEV_FS_TYPE  defaults,nofail  0  2" | sudo tee -a /etc/fstab
+echo "UUID=$uuid  $MOUNT_POINT  $DEV_FS_TYPE  defaults,nofail,x-systemd.device-timeout=60  0  2" | sudo tee -a /etc/fstab
 sudo mount -a
 
 # List the filesystems, for debugging convenience
