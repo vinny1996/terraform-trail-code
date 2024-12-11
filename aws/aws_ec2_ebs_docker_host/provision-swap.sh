@@ -12,8 +12,8 @@ SWAPPINESS=$2
 
 echo "Setting up a swap file (size: $SWAP_FILE_SIZE, swappiness: $SWAPPINESS)..."
 
-# Create the swap file
-sudo fallocate -l ${SWAP_FILE_SIZE} /swapfile
+# Create the swap file using dd
+sudo dd if=/dev/zero of=/swapfile bs=1M count=${SWAP_FILE_SIZE}
 
 # Only root should be able to access to this file
 sudo chmod 600 /swapfile
