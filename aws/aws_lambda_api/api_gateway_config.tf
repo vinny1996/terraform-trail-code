@@ -17,7 +17,7 @@ resource "aws_api_gateway_stage" "this" {
   description   = "${var.comment_prefix}${var.api_domain}"
   rest_api_id   = "${aws_api_gateway_rest_api.this.id}"
   deployment_id = "${aws_api_gateway_deployment.this.id}"
-  tags          = "${var.swapna}"
+  tags          = "${var.lemon}"
 }
 
 resource "aws_api_gateway_method_settings" "this" {
