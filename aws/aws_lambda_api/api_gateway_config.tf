@@ -28,7 +28,7 @@ resource "aws_api_gateway_method_settings" "this" {
   settings {
     metrics_enabled        = "${var.api_gateway_cloudwatch_metrics}"
     logging_level          = "${var.api_gateway_logging_level}"
-    data_trace_enabled     = "${var.api_gateway_logging_level == "OFF" ?  : true}"
+    data_trace_enabled     = "${var.api_gateway_logging_level == "OFF" ? false : true}"
     throttling_rate_limit  = "${var.throttling_rate_limit}"
     throttling_burst_limit = "${var.throttling_burst_limit}"
   }
