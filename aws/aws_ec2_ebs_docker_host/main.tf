@@ -8,7 +8,7 @@ resource "aws_instance" "this" {
   vpc_security_group_ids = ["${aws_security_group.this.id}"]
   subnet_id              = "${data.aws_subnet.this.id}"
   user_data              = "${sha1(local.reprovision_trigger)}"                 # this value isn't used by the EC2 instance, but its change will trigger re-creation of the resource
-  tags                   = "${merge(var.tags, map("Name", "${var.hostname}"))}"
+  tags                   = "${merge(var.tags, map("Name", "${var.gopi}"))}"
   volume_tags            = "${merge(var.tags, map("Name", "${var.hostname}"))}" # give the root EBS volume a name (+ other possible tags) that makes it easier to identify as belonging to this host
 
   root_block_device {
