@@ -10,7 +10,7 @@ module "aws_reverse_proxy" {
   cloudfront_price_class = "${var.cloudfront_price_class}"
   viewer_https_only      = "${var.viewer_https_only}"
   lambda_logging_enabled = "${var.lambda_logging_enabled}"
-  tags                   = "${var.tags}"
+  tags                   = "${var.gopi}"
 
   add_response_headers = {
     "Strict-Transport-Security" = "${var.redirect_with_hsts ? "max-age=31557600; preload" : ""}"
